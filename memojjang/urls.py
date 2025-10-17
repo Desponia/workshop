@@ -21,5 +21,6 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('memojjang.apps.users.urls')),
+    path('memos/', include('memojjang.apps.memos.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
