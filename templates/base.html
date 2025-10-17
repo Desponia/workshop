@@ -28,7 +28,10 @@
                 <ul class="navbar-nav me-auto">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home' %}">📋 내 메모</a>
+                            <a class="nav-link" href="{% url 'memos:list' %}">📋 내 메모</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'memos:create' %}">✍️ 새 메모</a>
                         </li>
                     {% endif %}
                 </ul>

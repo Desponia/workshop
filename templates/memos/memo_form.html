@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ form_title }} - 메모짱{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">{{ form_title }}</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <!-- 제목 필드 -->
+                    <div class="mb-3">
+                        <label for="{{ form.title.id_for_label }}" class="form-label">
+                            {{ form.title.label }} <span class="text-danger">*</span>
+                        </label>
+                        {{ form.title }}
+                        {% if form.title.errors %}
+                            <div class="text-danger small">
+                                {% for error in form.title.errors %}
+                                    <div>{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- 범주 필드 -->
+                    <div class="mb-3">
+                        <label for="{{ form.category.id_for_label }}" class="form-label">
+                            {{ form.category.label }}
+                        </label>
+                        {{ form.category }}
+                        {% if form.category.help_text %}
+                            <div class="form-text">{{ form.category.help_text }}</div>
+                        {% endif %}
+                        {% if form.category.errors %}
+                            <div class="text-danger small">
+                                {% for error in form.category.errors %}
+                                    <div>{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        
+                        <!-- 범주 설명 -->
+                        <div class="mt-2">
+                            <small class="text-muted">
+                                <span class="badge bg-info">일상</span> 일상생활 관련 메모 | 
+                                <span class="badge bg-primary">업무</span> 업무 관련 메모 | 
+                                <span class="badge bg-success">개인</span> 개인적인 메모
+                            </small>
+                        </div>
+                    </div>
+                    
+                    <!-- 내용 필드 -->
+                    <div class="mb-3">
+                        <label for="{{ form.content.id_for_label }}" class="form-label">
+                            {{ form.content.label }} <span class="text-danger">*</span>
+                        </label>
+                        {{ form.content }}
+                        {% if form.content.errors %}
+                            <div class="text-danger small">
+                                {% for error in form.content.errors %}
+                                    <div>{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Non-field errors -->
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.non_field_errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    
+                    <!-- 버튼 -->
+                    <div class="d-flex justify-content-between">
+                        <a href="{% if object %}{% url 'memos:detail' object.pk %}{% else %}{% url 'memos:list' %}{% endif %}" 
+                           class="btn btn-outline-secondary">
+                            <i class="fas fa-times"></i> 취소
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> {{ submit_button_text }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- 도움말 -->
+        <div class="alert alert-info mt-3">
+            <h6><i class="fas fa-lightbulb"></i> 팁</h6>
+            <ul class="mb-0">
+                <li>범주는 선택 사항입니다. 나중에 추가하거나 변경할 수 있습니다.</li>
+                <li>범주를 설정하면 메모를 더 쉽게 찾고 관리할 수 있습니다.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
