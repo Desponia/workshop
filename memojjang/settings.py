@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     # Custom apps
     'memojjang.apps.users',
+    'memojjang.apps.memos',
 ]
 
 MIDDLEWARE = [
