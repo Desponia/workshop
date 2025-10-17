@@ -1,0 +1,91 @@
+/* 메모짱 커스텀 스타일 */
+
+/* 전체 페이지 스타일 */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 네비게이션 스타일 */
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+/* 카드 스타일 */
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+/* 버튼 스타일 */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* 폼 스타일 */
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+/* 알림 메시지 스타일 */
+.alert {
+    border-radius: 8px;
+    border: none;
+}
+
+/* 점보트론 스타일 */
+.jumbotron {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.jumbotron.bg-light {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+    color: #495057 !important;
+}
+
+/* 푸터 스타일 */
+footer {
+    margin-top: auto;
+}
+
+/* 반응형 텍스트 */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* 로딩 스피너 */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* 애니메이션 */
+.fade-in {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
